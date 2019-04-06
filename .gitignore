@@ -11,3 +11,5 @@ bourbon/
 vendor
 node_modules
 bower_components
+
+style.css
