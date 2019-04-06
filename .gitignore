@@ -1,0 +1,12 @@
+### Ignore files from MAC
+.DS_Store
+.idea
+
+### Ignore sass cache and node modules
+.sass-cache
+node_modules/
+
+## Other rules down here.
+vendor
+node_modules
+bower_components
