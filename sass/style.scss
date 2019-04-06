@@ -43,76 +43,76 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
     ## Captions
     ## Galleries
 --------------------------------------------------------------*/
-@import "bourbon";
+@import "bourbon/bourbon";
 
-@import "sass/variables-site/variables-site";
-@import "sass/mixins/mixins-master";
+@import "variables-site/variables-site";
+@import "mixins/mixins-master";
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
-@import "sass/normalize";
+@import "normalize";
 /*--------------------------------------------------------------
 # Grid
 --------------------------------------------------------------*/
-@import "sass/grid/index";
-@import "sass/layout/layout";
+@import "grid/index";
+@import "layout/layout";
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
-@import "sass/typography/typography";
+@import "typography/typography";
 
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
-@import "sass/elements/elements";
+@import "elements/elements";
 
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
-@import "sass/forms/forms";
+@import "forms/forms";
 
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-@import "sass/navigation/navigation";
+@import "navigation/navigation";
 
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
-@import "sass/modules/accessibility";
+@import "modules/accessibility";
 
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
-@import "sass/modules/alignments";
+@import "modules/alignments";
 
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
-@import "sass/modules/clearings";
+@import "modules/clearings";
 
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
-@import "sass/site/secondary/widgets";
+@import "site/secondary/widgets";
 
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
-@import "sass/site/site";
+@import "site/site";
 
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
-@import "sass/modules/infinite-scroll";
+@import "modules/infinite-scroll";
 
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
-@import "sass/media/media";
+@import "media/media";
 
 /*--------------------------------------------------------------
 # Plugins
 --------------------------------------------------------------*/
-@import "sass/plugins/plugins";
+@import "plugins/plugins";
