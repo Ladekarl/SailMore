@@ -5,11 +5,9 @@
 ### Ignore sass cache and node modules
 .sass-cache
 node_modules/
-bourbon/
 
 ## Other rules down here.
 vendor
 node_modules
-bower_components
 
 style.css

@@ -4,6 +4,7 @@
   "description": "=== Base WP === Contributors: iografica Requires at least: 4.5 Tested up to: 5.0 Version: 2.16 License: GPLv2 or later License URI: http://www.gnu.org/licenses/gpl-2.0.html Tags: one-column, two-columns, left-sidebar, right-sidebar, flexible-header, custom-background, custom-colors, custom-header, custom-menu, featured-image-header, featured-images, footer-widgets, full-width-template, microformats, post-formats, sticky-post, theme-options, threaded-comments, translation-ready, blog, e-commerce",
   "main": "gulpfile.js",
   "scripts": {
+    "dev": "gulp dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
