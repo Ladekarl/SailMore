@@ -15,10 +15,11 @@
 
 <div class="mec-wrap">
 	<div class="mec-event-grid-classic">
-		<div class="row">
-			<?php $i = 0;
-			foreach ( um_members( 'users_per_page' ) as $member ) {
-				$i++;
+		<?php $i = 0;
+		foreach ( array_chunk( um_members( 'users_per_page' ), 4, true ) as $members ) {
+			$i++;
+			echo '<div class="row">';
+			foreach ( $members as $member ) {
 				um_fetch_user( $member ); ?>
 				<div class="col-md-3 col-sm-3">
 					<article data-style="" class="mec-event-article sm-event-article mec-clear ">
@@ -30,51 +31,31 @@
 							<div class="mec-event-date mec-bg-color sm-event-date-wrapper">
 								<div class="sm-event-date">
 									<div class="sm-event-date-top">
-									<?php
-									um_fetch_user( $member );
-									foreach ( $tagline_fields as $key ) {
-										if ( $key == 'sejlperiode_start' ) {
-											$value = um_filtered_value( $key );
-											if ( !$value )
-												continue;
-											$pieces = explode(" ", $value);
-											?>
-											<span class="sm-event-date-num">
-											<?php
-											_e( trim($pieces[0]), 'ultimate-member' );
-											?>
-											</span>
-											<?php
-											?>
-											<span class="sm-event-date-month">
-											<?php
-											_e( trim($pieces[1]), 'ultimate-member' );
-											?>
-											</span> -</br>
-											<?php
+										<?php
+										$key = 'sejlperiode_start';
+										$value = um_filtered_value( $key );
+										if ( $value )
+											$piecesStart = explode( " ", $value );
+										if ( $piecesStart ) {
+											echo '<span class="sm-event-date-num">';
+											_e( trim( $piecesStart[0] ), 'ultimate-member' );
+											echo '</span>';
+											echo '<span class="sm-event-date-month">';
+											_e( trim( $piecesStart[1] ), 'ultimate-member' );
+											echo '</span> -</br>';
 										}
-										if ( $key == 'sejlperiode_slut' ) {
-											$value = um_filtered_value( $key );
-											if ( !$value )
-												continue;
-											$pieces = explode(" ", $value);
-											?>
-											<span class="sm-event-date-num">
-											<?php
-											_e( trim($pieces[0]), 'ultimate-member' );
-											?>
-											</span>
-											<?php
-											?>
-											<span class="sm-event-date-month">
-											<?php
-											_e( trim($pieces[1]), 'ultimate-member' );
-											?>
-											</span>
-											<?php
+										$key = 'sejlperiode_slut';
+										$value = um_filtered_value( $key );
+										if ( $value )
+											$piecesSlut = explode( " ", $value );
+										if ( $piecesSlut ) {
+											echo '<span class="sm-event-date-num">';
+											_e( trim( $piecesSlut[0] ), 'ultimate-member' );
+											echo '</span>';
+											echo '<span class="sm-event-date-month">';
+											_e( trim( $piecesSlut[1] ), 'ultimate-member' );
 										}
-									}
-									?>
+										?>
 									</div>
 								</div>
 								<div class="sm-event-loc">
@@ -85,16 +66,10 @@
 										</div>
 										<div class="sm-loc-header-um">
 											<?php
-											um_fetch_user( $member );
-											foreach ( $tagline_fields as $key ) {
-												if ( $key == 'sejlomraade' ) {
-													$value = um_filtered_value( $key );
-													if ( !$value )
-														continue;
-													_e( $value, 'ultimate-member' );
-
-												} // end if
-											} // end foreach
+											$key = 'sejlomraade';
+											$value = um_filtered_value( $key );
+											if ( $value )
+												_e( $value, 'ultimate-member' );
 											?>
 										</div>
 										<div class="sm-loc-header-label-um">
@@ -102,16 +77,10 @@
 										</div>
 										<div class="sm-loc-header-um">
 											<?php
-											um_fetch_user( $member );
-											foreach ( $tagline_fields as $key ) {
-												if ( $key == 'sejlerfaring_select' ) {
-													$value = um_filtered_value( $key );
-													if ( !$value )
-														continue;
-													_e( $value, 'ultimate-member' );
-
-												} // end if
-											} // end foreach
+											$key = 'sejlerfaring_select';
+											$value = um_filtered_value( $key );
+											if ( $value )
+												_e( $value, 'ultimate-member' );
 											?>
 										</div>
 										<div class="sm-loc-body">
@@ -122,21 +91,14 @@
 							<h4 class="mec-event-title sm-event-title"><a class="mec-color-hover" data-event-id="2570"
 																		  href="<?php echo um_user_profile_url(); ?>">
 									<?php
-									um_fetch_user( $member );
-									foreach ( $tagline_fields as $key ) {
-										if ( $key == 'description' ) {
-											$value = um_filtered_value( $key );
-											if ( !$value )
-												continue;
-											_e( trim( str_replace( array( "<p>", "</p>" ), "", $value ) ), 'ultimate-member' );
-
-										} // end if
-									} // end foreach
+									$key = 'description';
+									$value = um_filtered_value( $key );
+									if ( $value )
+										_e( trim( str_replace( array( "<p>", "</p>" ), "", $value ) ), 'ultimate-member' );
 									?>
 								</a></h4>
 							<span class="sm-event-post-content-um">
 							<?php
-							um_fetch_user( $member );
 							foreach ( $tagline_fields as $key ) {
 								if ( $key == 'beskriv_dig_selv_som_gast' ) {
 									$value = um_filtered_value( $key );
@@ -164,7 +126,9 @@
 						</div>
 					</article>
 				</div>
-			<?php } ?>
-		</div>
+			<?php }
+			echo '</div>';
+		}
+		?>
 	</div>
 </div>
