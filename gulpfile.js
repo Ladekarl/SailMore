@@ -6,7 +6,7 @@ var php = require('gulp-connect-php');
 var browserSync = require('browser-sync').create();
 
 gulp.task('sass', function () {
-    return gulp.src('sass/**/*.scss') // Gets all files ending with .scss in app/scss
+    return gulp.src('style.scss') // Gets all files ending with .scss in app/scss
         .pipe(sass())
         .pipe(gulp.dest(''))
         .pipe(browserSync.reload({
