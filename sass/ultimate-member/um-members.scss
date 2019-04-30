@@ -1,0 +1,32 @@
+.sm-loc-header-label-um {
+  color: #3c7f8d;
+  font-weight: bold;
+  font-size: 7pt;
+}
+
+.sm-loc-header-um {
+  font-size: 6pt;
+}
+
+.sm-location-pin-um {
+  font-size: 11pt;
+  margin-right: 4px;
+  margin-top: 2px;
+  align-self: flex-start;
+}
+
+.sm-event-post-content-um img {
+  display: none;
+}
+
+.sm-event-post-content-um p,
+.sm-event-post-content-um {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-height: 1.2em;
+  max-height: 3.6em;
+  font-size: 7pt !important;
+}
