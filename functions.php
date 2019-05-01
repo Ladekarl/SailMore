@@ -12,3 +12,11 @@ function my_theme_enqueue_styles()
 	);
 }
 
+function my_theme_scripts_function() {
+
+	wp_enqueue_script( 'sailmore-um', get_stylesheet_directory_uri() . '/js/sailmore-um.js');
+
+}
+
+add_action('wp_enqueue_scripts','my_theme_scripts_function');
+

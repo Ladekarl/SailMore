@@ -1,19 +1,11 @@
 <?php /* Template: SailMore Gast */ ?>
-
-<!--
-***
-*** FOR SEARCH FORM
-***
-
-<div class="um <?php /*echo $this->get_class( $mode ); */ ?> um-<?php /*echo $form_id; */ ?>">
-	<div class="um-form">
-		<?php /*do_action('um_members_directory_search', $args ); */ ?>
-		<?php /*do_action('um_members_directory_head', $args ); */ ?>
+<div class="mec-wrap sm-members-wrap">
+	<div class="um <?php echo $this->get_class( $mode ); ?> um-<?php echo $form_id; ?>">
+		<div class="um-form">
+			<?php do_action( 'um_members_directory_search', $args ); ?>
+			<?php do_action( 'um_members_directory_head', $args ); ?>
+		</div>
 	</div>
-</div>
--->
-
-<div class="mec-wrap">
 	<div class="mec-event-grid-classic">
 		<?php $i = 0;
 		foreach ( array_chunk( um_members( 'users_per_page' ), 4, true ) as $members ) {
