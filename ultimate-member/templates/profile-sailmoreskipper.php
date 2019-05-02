@@ -2,7 +2,7 @@
 	<div class="um <?php echo $this->get_class( $mode ); ?> um-<?php echo esc_attr( $form_id ); ?> um-role-<?php echo um_user( 'role' ); ?> ">
 		<div class="um-meta-text">
 			<?php
-			sm_fetch_user();
+			sm_fetch_user_skipper();
 			$full_name = get_user_meta( um_user( 'ID' ), 'full_name', true );
 			echo esc_html( $full_name );
 			?>
@@ -20,8 +20,8 @@
 			$profile = UM()->user()->profile;
 
 			if ( $can_view == -1 ) {
-				sm_profile_header( $profile, $args );
-				sm_profile_content_main( $profile );
+				sm_profile_header_skipper( $profile );
+				sm_profile_content_main_skipper( $profile );
 			} else { ?>
 				<div class="um-profile-note"><span><i class="um-faicon-lock"></i><?php echo $can_view; ?></span></div>
 			<?php }
@@ -30,9 +30,8 @@
 	</div>
 
 <?php
-function sm_profile_header( $profile, $args )
+function sm_profile_header_skipper( $profile )
 {
-	$default_size = str_replace( 'px', '', $args['photosize'] );
 	?>
 
 	<div class="um-header no-cover">
@@ -100,28 +99,28 @@ function sm_profile_header( $profile, $args )
 	<?php
 }
 
-function sm_profile_content_main( $profile )
+function sm_profile_content_main_skipper( $profile )
 {
 	?>
 	<div class="sm-profile-content sm-profile-description">
 		<?php
 		if ( isset( $profile['sejlerfaring_select'] ) )
-			add_content( 'Sejlerfaring', $profile['sejlerfaring_select'] );
+			add_content_skipper( 'Sejlerfaring', $profile['sejlerfaring_select'] );
 		if ( isset( $profile['CERTIFIKATER'] ) )
-			add_content( 'Sejlområder', extract_content( $profile['sejlomraade'] ) );
+			add_content_skipper( 'Sejlområder', extract_content_skipper( $profile['sejlomraade'] ) );
 		if ( isset( $profile['sejladstype'] ) )
-			add_content( 'Sejladstype', extract_content( $profile['sejladstype'] ), 'jeg vil helst sejle' );
+			add_content_skipper( 'Sejladstype', extract_content_skipper( $profile['sejladstype'] ), 'jeg vil helst sejle' );
 		if ( isset( $profile['skills'] ) )
-			add_content( 'Mine skills', extract_content( $profile['skills'] ), 'JEG KAN BIDRAGE MED' );
+			add_content_skipper( 'Mine skills', extract_content_skipper( $profile['skills'] ), 'JEG KAN BIDRAGE MED' );
 
 		if ( isset( $profile['aktiviteter'] ) )
-			add_content( 'Aktiviteter', extract_content( $profile['aktiviteter'] ), 'jeg er glad for' );
+			add_content_skipper( 'Aktiviteter', extract_content_skipper( $profile['aktiviteter'] ), 'jeg er glad for' );
 		?>
 	</div>
 	<?php
 }
 
-function add_content( $title, $content, $description = null )
+function add_content_skipper( $title, $content, $description = null )
 {
 	?>
 	<div class="sm-profile-description-title">
@@ -162,7 +161,7 @@ function add_content( $title, $content, $description = null )
 	<?php
 }
 
-function extract_content( $arr )
+function extract_content_skipper( $arr )
 {
 	$explodedArr = explode( '"', $arr );
 	$contentArr = [];
@@ -174,7 +173,7 @@ function extract_content( $arr )
 	return $contentArr;
 }
 
-function sm_fetch_user()
+function sm_fetch_user_skipper()
 {
 	if ( um_queried_user() ) {
 		if ( UM()->options()->get( 'permalink_base' ) == 'user_login' ) {
@@ -235,7 +234,7 @@ function sm_fetch_user()
 
 		if ( $user_id ) {
 			um_set_requested_user( $user_id );
-			sm_access_profile( $user_id );
+			sm_access_profile_skipper( $user_id );
 		} else {
 			exit( wp_redirect( um_get_core_page( 'user' ) ) );
 		}
@@ -243,7 +242,7 @@ function sm_fetch_user()
 	}
 }
 
-function sm_access_profile( $user_id )
+function sm_access_profile_skipper( $user_id )
 {
 	um_fetch_user( $user_id );
 
