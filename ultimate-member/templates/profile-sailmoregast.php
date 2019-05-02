@@ -41,16 +41,16 @@ function sm_profile_header( $profile )
 		<?php
 		$uris = [];
 		if ( isset( $profile['billede_af_person_1'] ) ) {
-			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_1', um_user( 'ID' ) ) );
+			array_push( $uris, UM()->files()->get_download_link( 2756, 'billede_af_person_1', um_user( 'ID' ) ) );
 		}
 		if ( isset( $profile['billede_af_person_2'] ) ) {
-			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_2', um_user( 'ID' ) ) );
+			array_push( $uris, UM()->files()->get_download_link( 2756, 'billede_af_person_2', um_user( 'ID' ) ) );
 		}
 		if ( isset( $profile['billede_af_person_3'] ) ) {
-			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_3', um_user( 'ID' ) ) );
+			array_push( $uris, UM()->files()->get_download_link( 2756, 'billede_af_person_3', um_user( 'ID' ) ) );
 		}
 		if ( isset( $profile['billede_af_person_4'] ) ) {
-			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_4', um_user( 'ID' ) ) );
+			array_push( $uris, UM()->files()->get_download_link( 2756, 'billede_af_person_4', um_user( 'ID' ) ) );
 		}
 
 		?>

@@ -61,16 +61,16 @@ function sm_profile_header_skipper( $profile )
 		}
 		$profUris = [];
 		if ( isset( $profile['billede_af_person_1'] ) ) {
-			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_1', um_user( 'ID' ) ) );
+			array_push( $profUris, UM()->files()->get_download_link( 358, 'billede_af_person_1', um_user( 'ID' ) ) );
 		}
 		if ( isset( $profile['billede_af_person_2'] ) ) {
-			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_2', um_user( 'ID' ) ) );
+			array_push( $profUris, UM()->files()->get_download_link( 358, 'billede_af_person_2', um_user( 'ID' ) ) );
 		}
 		if ( isset( $profile['billede_af_person_3'] ) ) {
-			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_3', um_user( 'ID' ) ) );
+			array_push( $profUris, UM()->files()->get_download_link( 358, 'billede_af_person_3', um_user( 'ID' ) ) );
 		}
 		if ( isset( $profile['billede_af_person_4'] ) ) {
-			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_4', um_user( 'ID' ) ) );
+			array_push( $profUris, UM()->files()->get_download_link( 358, 'billede_af_person_4', um_user( 'ID' ) ) );
 		}
 
 		?>
@@ -78,8 +78,8 @@ function sm_profile_header_skipper( $profile )
 		<div class="sm-profile-description">
 			<div class="sm-photo-container">
 				<?php
-				foreach ( $profUris as $uri ) {
-					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+				foreach ( $profUris as $proUri ) {
+					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $proUri ) . '"><img src="' . esc_attr( $proUri ) . '" /></a></div>';
 				}
 				?>
 			</div>
