@@ -108,7 +108,7 @@
 								<ul class="mec-event-sharing"></ul>
 							</ul>
 							<a class="mec-booking-button sm-booking-button" data-event-id="2570"
-							   href="<?php echo '/user/' . um_filtered_value( 'user_login' ) ?>" target="_self">LÆS
+							   href="<?php echo '/gast/' . strtolower(um_filtered_value( 'user_login' )) ?>" target="_self">LÆS
 								MERE</a>
 						</div>
 					</article>

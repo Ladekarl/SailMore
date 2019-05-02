@@ -1,10 +1,10 @@
-<?php /* Template: SailMore Gast */ ?>
+<?php /* Template: SailMore Skipper */ ?>
 	<div class="um <?php echo $this->get_class( $mode ); ?> um-<?php echo esc_attr( $form_id ); ?> um-role-<?php echo um_user( 'role' ); ?> ">
 		<div class="um-meta-text">
 			<?php
 			sm_fetch_user();
-			$description = get_user_meta( um_user( 'ID' ), 'description', true );
-			echo esc_html( $description );
+			$full_name = get_user_meta( um_user( 'ID' ), 'full_name', true );
+			echo esc_html( $full_name );
 			?>
 		</div>
 
@@ -40,18 +40,60 @@ function sm_profile_header( $profile, $args )
 			<a href="<?php echo um_user_profile_url(); ?>" class="um-profile-photo-img"
 			   title="<?php echo um_user( 'display_name' ); ?>"><?php echo um_user( 'cover_photo' ); ?></a>
 		</div>
+		<?php
+		$uris = [];
+		if ( isset( $profile['baaden'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['baaden_14'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden_14', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['baaden_15'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden_15', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['baaden_15_16'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden_15_16', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['baaden_15_16_17'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden_15_16_17', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['baaden_15_16_17_18'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden_15_16_17_18', um_user( 'ID' ) ) );
+		}
+
+		?>
 		<div class="sm-profile-description">
 			<div class="sm-profile-description-title">
 				Lidt om mig ...
 			</div>
 			<div class="sm-profile-description-header-content">
 				<?php
-				echo $profile['beskriv_dig_selv_som_gast']
+				echo $profile['personlig']
 				?>
 			</div>
-			<a class="sm-profile-contact-button">
-				Kontakt mig
-			</a>
+			<div class="sm-profile-description-title">
+				Beskrivelse af min båd ...
+			</div>
+			<div class="sm-profile-description-header-content">
+				<?php
+				echo $profile['personlig_14']
+				?>
+			</div>
+			<div class="sm-photo-container">
+				<?php
+				foreach ( $uris as $uri ) {
+					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+				}
+				?>
+			</div>
+			<div class="sm-contact-container">
+				<a class="sm-profile-contact-button">
+					Kontakt mig
+				</a>
+				<a class="sm-profile-contact-button">
+					Se mine togter
+				</a>
+			</div>
 		</div>
 		<div class="um-clear"></div>
 	</div>
@@ -65,10 +107,13 @@ function sm_profile_content_main( $profile )
 		<?php
 		if ( isset( $profile['sejlerfaring_select'] ) )
 			add_content( 'Sejlerfaring', $profile['sejlerfaring_select'] );
-		if ( isset( $profile['sejlomraade'] ) )
-			add_content( 'Sejlområder', extract_content( $profile['sejlomraade'] ), 'jeg vil gerne sejle i' );
+		if ( isset( $profile['CERTIFIKATER'] ) )
+			add_content( 'Sejlområder', extract_content( $profile['sejlomraade'] ) );
 		if ( isset( $profile['sejladstype'] ) )
 			add_content( 'Sejladstype', extract_content( $profile['sejladstype'] ), 'jeg vil helst sejle' );
+		if ( isset( $profile['skills'] ) )
+			add_content( 'Mine skills', extract_content( $profile['skills'] ), 'JEG KAN BIDRAGE MED' );
+
 		if ( isset( $profile['aktiviteter'] ) )
 			add_content( 'Aktiviteter', extract_content( $profile['aktiviteter'] ), 'jeg er glad for' );
 		?>
