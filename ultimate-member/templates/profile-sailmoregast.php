@@ -38,7 +38,7 @@ function sm_profile_header( $profile, $args )
 	<div class="um-header no-cover">
 		<div class="um-profile-photo" data-user_id="<?php echo um_profile_id(); ?>">
 			<a href="<?php echo um_user_profile_url(); ?>" class="um-profile-photo-img"
-			   title="<?php echo um_user( 'display_name' ); ?>"><?php echo get_avatar( um_user( 'ID' ), $default_size ); ?></a>
+			   title="<?php echo um_user( 'display_name' ); ?>"><?php echo um_user( 'cover_photo' ); ?></a>
 		</div>
 		<div class="sm-profile-description">
 			<div class="sm-profile-description-title">

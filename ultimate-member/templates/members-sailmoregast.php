@@ -17,7 +17,7 @@
 					<article data-style="" class="mec-event-article sm-event-article mec-clear ">
 						<div class="mec-event-image sm-event-image">
 							<a href="<?php echo um_user_profile_url(); ?>"
-							   title="<?php echo esc_attr( um_user( 'display_name' ) ); ?>"><?php echo get_avatar( um_user( 'ID' ), $default_size ); ?></a>
+							   title="<?php echo esc_attr( um_user( 'display_name' ) ); ?>"><?php echo um_user( 'cover_photo' ); ?></a>
 						</div>
 						<div class="mec-event-content sm-event-content">
 							<div class="mec-event-date mec-bg-color sm-event-date-wrapper">
