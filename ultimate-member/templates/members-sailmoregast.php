@@ -91,17 +91,11 @@
 								</a></h4>
 							<span class="sm-event-post-content-um">
 							<?php
-							foreach ( $tagline_fields as $key ) {
-								if ( $key == 'beskriv_dig_selv_som_gast' ) {
-									$value = um_filtered_value( $key );
-									if ( !$value )
-										continue;
-									_e( $value, 'ultimate-member' );
-
-								} // end if
-							} // end foreach
+							$key = 'beskriv_dig_selv_som_gast';
+							$value = um_filtered_value( $key );
+							if ( $value )
+								_e( $value, 'ultimate-member' );
 							?>
-
 					</span>
 						</div>
 						<div class="mec-event-footer sm-event-footer">
@@ -114,7 +108,8 @@
 								<ul class="mec-event-sharing"></ul>
 							</ul>
 							<a class="mec-booking-button sm-booking-button" data-event-id="2570"
-							   href="<?php echo um_user_profile_url(); ?>" target="_self">LÆS MERE</a>
+							   href="<?php echo '/user/' . um_filtered_value( 'user_login' ) ?>" target="_self">LÆS
+								MERE</a>
 						</div>
 					</article>
 				</div>

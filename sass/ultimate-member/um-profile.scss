@@ -1,0 +1,83 @@
+.um-profile {
+
+  .um-meta-text {
+    font-weight: 600 !important;
+    font-size: 20px !important;
+    color: black !important;
+    margin-top: 25px !important;
+    margin-bottom: 10px !important;
+  }
+
+  .sm-profile-container {
+
+    display: flex;
+
+    .um-header {
+      flex: 1;
+
+      padding: 0 !important;
+      border: none !important;
+
+      .um-profile-photo {
+        width: 100% !important;
+        margin-bottom: 25px !important;
+
+        a.um-profile-photo-img {
+          width: 100% !important;
+          height: auto !important;
+          padding: 0 !important;
+          top: 0 !important;
+
+          img.um-avatar {
+            border-radius: 0 !important;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+
+    .sm-profile-content {
+      width: 250px;
+      margin-left: 20px;
+    }
+
+    .sm-profile-description {
+      font-size: 12px;
+
+      .sm-profile-contact-button {
+        color: #ffffff;
+        background-color: #3c7f8d;
+        padding: 10px 25px;
+        text-transform: uppercase;
+        font-weight: 600;
+        border-radius: 15px;
+        cursor: pointer;
+      }
+
+      .sm-profile-description-text {
+        text-transform: uppercase;
+      }
+
+      .sm-profile-description-title {
+        text-transform: uppercase;
+        color: #3c7f8d;
+        font-weight: 600;
+      }
+
+      .sm-profile-description-content-wrapper {
+        margin: 10px 0;
+
+        .sm-profile-description-content {
+          display: list-item;
+          list-style-type: disc;
+          list-style-position: inside;
+        }
+      }
+
+      .sm-profile-description-header-content {
+        margin-top: 10px;
+        margin-bottom: 25px;
+      }
+    }
+  }
+}
