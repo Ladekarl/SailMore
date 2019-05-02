@@ -49,9 +49,11 @@ function sm_profile_header( $profile, $args )
 				echo $profile['beskriv_dig_selv_som_gast']
 				?>
 			</div>
-			<a class="sm-profile-contact-button">
-				Kontakt mig
-			</a>
+			<div class="sm-contact-container">
+				<a class="sm-profile-contact-button">
+					Kontakt mig
+				</a>
+			</div>
 		</div>
 		<div class="um-clear"></div>
 	</div>
