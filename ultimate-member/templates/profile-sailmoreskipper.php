@@ -59,9 +59,30 @@ function sm_profile_header_skipper( $profile )
 		if ( isset( $profile['baaden_15_16_17_18'] ) ) {
 			array_push( $uris, UM()->files()->get_download_link( 358, 'baaden_15_16_17_18', um_user( 'ID' ) ) );
 		}
+		$profUris = [];
+		if ( isset( $profile['billede_af_person_1'] ) ) {
+			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_1', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['billede_af_person_2'] ) ) {
+			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_2', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['billede_af_person_3'] ) ) {
+			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_3', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['billede_af_person_4'] ) ) {
+			array_push( $profUris, UM()->files()->get_download_link( 2613, 'billede_af_person_4', um_user( 'ID' ) ) );
+		}
 
 		?>
+
 		<div class="sm-profile-description">
+			<div class="sm-photo-container">
+				<?php
+				foreach ( $profUris as $uri ) {
+					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+				}
+				?>
+			</div>
 			<div class="sm-profile-description-title">
 				Lidt om mig ...
 			</div>
@@ -112,7 +133,6 @@ function sm_profile_content_main_skipper( $profile )
 			add_content_skipper( 'Sejladstype', extract_content_skipper( $profile['sejladstype'] ), 'jeg vil helst sejle' );
 		if ( isset( $profile['skills'] ) )
 			add_content_skipper( 'Mine skills', extract_content_skipper( $profile['skills'] ), 'JEG KAN BIDRAGE MED' );
-
 		if ( isset( $profile['aktiviteter'] ) )
 			add_content_skipper( 'Aktiviteter', extract_content_skipper( $profile['aktiviteter'] ), 'jeg er glad for' );
 		?>

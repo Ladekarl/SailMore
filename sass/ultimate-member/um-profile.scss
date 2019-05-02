@@ -14,13 +14,14 @@
 
     .um-header {
       flex: 1;
+      margin-top: 0 !important;
 
       padding: 0 !important;
       border: none !important;
 
       .um-profile-photo {
         width: 100% !important;
-        margin-bottom: 25px !important;
+        margin-bottom: 0 !important;
 
         a.um-profile-photo-img {
           width: 100% !important;
@@ -71,12 +72,21 @@
 
       .sm-photo-container {
         display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
         width: 100%;
-        margin-bottom: 40px;
+        margin-bottom: 25px;
 
         div.um-photo {
-          flex: 1;
+          flex: 1 0 25%;
           margin-top: 0 !important;
+          max-width: 25% !important;
+
+          padding-left: 2px;
+          padding-right: 2px;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
 
           a {
             border: none !important;
@@ -85,6 +95,7 @@
 
             img {
               border-radius: 0 !important;
+              max-height: 150px;
             }
           }
         }

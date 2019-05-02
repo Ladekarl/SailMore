@@ -20,7 +20,7 @@
 			$profile = UM()->user()->profile;
 
 			if ( $can_view == -1 ) {
-				sm_profile_header( $profile, $args );
+				sm_profile_header( $profile );
 				sm_profile_content_main( $profile );
 			} else { ?>
 				<div class="um-profile-note"><span><i class="um-faicon-lock"></i><?php echo $can_view; ?></span></div>
@@ -30,17 +30,39 @@
 	</div>
 
 <?php
-function sm_profile_header( $profile, $args )
+function sm_profile_header( $profile )
 {
-	$default_size = str_replace( 'px', '', $args['photosize'] );
 	?>
-
 	<div class="um-header no-cover">
 		<div class="um-profile-photo" data-user_id="<?php echo um_profile_id(); ?>">
 			<a href="<?php echo um_user_profile_url(); ?>" class="um-profile-photo-img"
 			   title="<?php echo um_user( 'display_name' ); ?>"><?php echo um_user( 'cover_photo' ); ?></a>
 		</div>
+		<?php
+		$uris = [];
+		if ( isset( $profile['billede_af_person_1'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_1', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['billede_af_person_2'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_2', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['billede_af_person_3'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_3', um_user( 'ID' ) ) );
+		}
+		if ( isset( $profile['billede_af_person_4'] ) ) {
+			array_push( $uris, UM()->files()->get_download_link( 2613, 'billede_af_person_4', um_user( 'ID' ) ) );
+		}
+
+		?>
+
 		<div class="sm-profile-description">
+			<div class="sm-photo-container">
+				<?php
+				foreach ( $uris as $uri ) {
+					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+				}
+				?>
+			</div>
 			<div class="sm-profile-description-title">
 				Lidt om mig ...
 			</div>
