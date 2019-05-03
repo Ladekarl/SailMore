@@ -35,8 +35,7 @@ function sm_profile_header( $profile )
 	?>
 	<div class="um-header no-cover">
 		<div class="um-profile-photo" data-user_id="<?php echo um_profile_id(); ?>">
-			<a href="<?php echo um_user_profile_url(); ?>" class="um-profile-photo-img"
-			   title="<?php echo um_user( 'display_name' ); ?>"><?php echo um_user( 'cover_photo' ); ?></a>
+			<?php echo um_user( 'cover_photo' ); ?>
 		</div>
 		<?php
 		$uris = [];

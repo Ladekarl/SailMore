@@ -21,18 +21,14 @@
 
       .um-profile-photo {
         width: 100% !important;
-        margin-bottom: 0 !important;
+        margin-bottom: 5px !important;
+        height: auto !important;
+        padding: 0 !important;
+        top: 0 !important;
 
-        a.um-profile-photo-img {
-          width: 100% !important;
-          height: auto !important;
-          padding: 0 !important;
-          top: 0 !important;
-
-          img {
-            border-radius: 0 !important;
-            object-fit: cover;
-          }
+        img {
+          border-radius: 0 !important;
+          object-fit: cover;
         }
       }
     }
