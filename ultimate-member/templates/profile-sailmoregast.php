@@ -88,10 +88,16 @@ function sm_profile_content_main( $profile )
 		<?php
 		if ( isset( $profile['sejlerfaring_select'] ) )
 			add_content( 'Sejlerfaring', $profile['sejlerfaring_select'] );
+		if ( isset( $profile['gast_eller_gaest'] ) )
+			add_content( 'Gast eller gæst?', extract_content( $profile['gast_eller_gaest'] ), 'jeg vil gerne rejse med som' );
 		if ( isset( $profile['sejlomraade'] ) )
 			add_content( 'Sejlområder', extract_content( $profile['sejlomraade'] ), 'jeg vil gerne sejle i' );
+		if ( isset( $profile['rejselaengde'] ) )
+			add_content( 'Rejselængde', extract_content( $profile['rejselaengde'] ), 'jeg kan sejle med i' );
 		if ( isset( $profile['sejladstype'] ) )
 			add_content( 'Sejladstype', extract_content( $profile['sejladstype'] ), 'jeg vil helst sejle' );
+		if ( isset( $profile['skills'] ) )
+			add_content( 'Mine skills', extract_content( $profile['skills'] ), 'jeg kan bidrage med' );
 		if ( isset( $profile['aktiviteter'] ) )
 			add_content( 'Aktiviteter', extract_content( $profile['aktiviteter'] ), 'jeg er glad for' );
 		?>
