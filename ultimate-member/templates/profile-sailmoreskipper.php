@@ -126,8 +126,8 @@ function sm_profile_content_main_skipper( $profile )
 		<?php
 		if ( isset( $profile['sejlerfaring_select'] ) )
 			add_content_skipper( 'Sejlerfaring', $profile['sejlerfaring_select'] );
-		if ( isset( $profile['CERTIFIKATER'] ) )
-			add_content_skipper( 'Sejlområder', extract_content_skipper( $profile['sejlomraade'] ) );
+		if ( isset( $profile['certifikater'] ) )
+			add_content_skipper( 'Certifikater', extract_content_skipper( $profile['certifikater'] ) );
 		if ( isset( $profile['sejladstype'] ) )
 			add_content_skipper( 'Sejladstype', extract_content_skipper( $profile['sejladstype'] ), 'jeg vil helst sejle' );
 		if ( isset( $profile['skills'] ) )
