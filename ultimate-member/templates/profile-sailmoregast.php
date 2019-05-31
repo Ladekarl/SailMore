@@ -88,13 +88,13 @@ function sm_profile_content_main( $profile )
 	$periods = [];
 
 	if ( isset( $profile['sejlperiode_start'] ) && isset( $profile['sejlperiode_slut'] ) ) {
-		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start'] ) ) . ' - ' . date( 'm/d/Y', strtotime( $profile['sejlperiode_slut'] ) ) );
+		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start'] ) ) . ' - ' . date( 'd/m/Y', strtotime( $profile['sejlperiode_slut'] ) ) );
 	}
 	if ( isset( $profile['sejlperiode_start_2'] ) && isset( $profile['sejlperiode_slut_2'] ) ) {
-		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start_2'] ) ) . ' - ' . date( 'm/d/Y', strtotime( $profile['sejlperiode_slut_2'] ) ) );
+		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start_2'] ) ) . ' - ' . date( 'd/m/Y', strtotime( $profile['sejlperiode_slut_2'] ) ) );
 	}
 	if ( isset( $profile['sejlperiode_start_3'] ) && isset( $profile['sejlperiode_slut_3'] ) ) {
-		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start_3'] ) ) . ' - ' . date( 'm/d/Y', strtotime( $profile['sejlperiode_slut_3'] ) ) );
+		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start_3'] ) ) . ' - ' . date( 'd/m/Y', strtotime( $profile['sejlperiode_slut_3'] ) ) );
 	}
 
 	?>
