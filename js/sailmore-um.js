@@ -1,6 +1,7 @@
 jQuery(document).ready(function () {
 
     jQuery('.sm-members-wrap #sejlomraade').before('<i class="mec-sl-location-pin"></i>');
+    jQuery('.sm-members-wrap #sejlperiode_start').before('<i class="mec-sl-calendar"></i>');
     jQuery('.sm-members-wrap #sejlerfaring_select').before('<i class="mec-sl-tag"></i>');
     jQuery('.sm-members-wrap #sejladstype').before('<i class="mec-sl-globe"></i>');
     jQuery('.sm-members-wrap #aktiviteter').before('<i class="mec-sl-folder"></i>');

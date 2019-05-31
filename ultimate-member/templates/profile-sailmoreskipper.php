@@ -78,7 +78,9 @@ function sm_profile_header_skipper( $profile )
 			<div class="sm-photo-container">
 				<?php
 				foreach ( $profUris as $proUri ) {
-					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $proUri ) . '"><img src="' . esc_attr( $proUri ) . '" /></a></div>';
+					if ( isset( $proUri ) ) {
+						echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $proUri ) . '"><img src="' . esc_attr( $proUri ) . '" /></a></div>';
+					}
 				}
 				?>
 			</div>
@@ -101,7 +103,9 @@ function sm_profile_header_skipper( $profile )
 			<div class="sm-photo-container">
 				<?php
 				foreach ( $uris as $uri ) {
-					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+					if ( isset( $uri ) ) {
+						echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+					}
 				}
 				?>
 			</div>

@@ -58,7 +58,9 @@ function sm_profile_header( $profile )
 			<div class="sm-photo-container">
 				<?php
 				foreach ( $uris as $uri ) {
-					echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+					if ( isset( $uri ) ) {
+						echo '<div class="um-photo"><a href="#" class="um-photo-modal" data-src="' . esc_attr( $uri ) . '"><img src="' . esc_attr( $uri ) . '" /></a></div>';
+					}
 				}
 				?>
 			</div>
@@ -83,15 +85,29 @@ function sm_profile_header( $profile )
 
 function sm_profile_content_main( $profile )
 {
+	$periods = [];
+
+	if ( isset( $profile['sejlperiode_start'] ) && isset( $profile['sejlperiode_slut'] ) ) {
+		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start'] ) ) . ' - ' . date( 'm/d/Y', strtotime( $profile['sejlperiode_slut'] ) ) );
+	}
+	if ( isset( $profile['sejlperiode_start_2'] ) && isset( $profile['sejlperiode_slut_2'] ) ) {
+		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start_2'] ) ) . ' - ' . date( 'm/d/Y', strtotime( $profile['sejlperiode_slut_2'] ) ) );
+	}
+	if ( isset( $profile['sejlperiode_start_3'] ) && isset( $profile['sejlperiode_slut_3'] ) ) {
+		array_push( $periods, date( 'm/d/Y', strtotime( $profile['sejlperiode_start_3'] ) ) . ' - ' . date( 'm/d/Y', strtotime( $profile['sejlperiode_slut_3'] ) ) );
+	}
+
 	?>
 	<div class="sm-profile-content sm-profile-description">
 		<?php
 		if ( isset( $profile['sejlerfaring_select'] ) )
 			add_content( 'Sejlerfaring', $profile['sejlerfaring_select'] );
 		if ( isset( $profile['gast_eller_gaest'] ) )
-			add_content( 'Gast eller gæst?', extract_content( $profile['gast_eller_gaest'] ), 'jeg vil gerne rejse med som' );
+			add_content( 'Gast eller gæst?', $profile['gast_eller_gaest'], 'jeg vil gerne rejse med som' );
 		if ( isset( $profile['sejlomraade'] ) )
 			add_content( 'Sejlområder', extract_content( $profile['sejlomraade'] ), 'jeg vil gerne sejle i' );
+		if ( isset( $profile['sejlomraade'] ) )
+			add_content( 'Sejlområder', $periods, 'jeg kan sejle med' );
 		if ( isset( $profile['rejselaengde'] ) )
 			add_content( 'Rejselængde', extract_content( $profile['rejselaengde'] ), 'jeg kan sejle med i' );
 		if ( isset( $profile['sejladstype'] ) )

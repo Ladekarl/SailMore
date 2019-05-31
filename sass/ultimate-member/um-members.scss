@@ -1,4 +1,4 @@
-.sm-members-wrap {
+div.sm-members-wrap {
   padding: 20px 5px;
 
   .sm-loc-header-label-um {
@@ -45,7 +45,9 @@
 
   .select2.select2-container {
 
-    span.select2-selection {
+    width: calc(100% - 36px) !important;
+
+    select.select2-selection, span.select2-selection {
       border: 1px solid #efefef !important;
       border-radius: 5px !important;
       min-height: 36px !important;
@@ -70,19 +72,24 @@
   .um-search {
     padding: 0 !important;
     min-height: 55px;
+
+    div.um-search-filter {
+
+      width: 20% !important;
+
+      i {
+        float: left;
+        margin: 0;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 15px;
+        color: #2d5c88;
+      }
+    }
   }
 
   .um.um-directory {
     margin-bottom: 0 !important;
-  }
-
-  .um-search-filter i {
-    float: left;
-    margin: 0;
-    text-align: center;
-    padding: 10px 0;
-    font-size: 15px;
-    color: #2d5c88;
   }
 
   .select2-selection__clear {
