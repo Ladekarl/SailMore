@@ -103,7 +103,7 @@ function sm_profile_content_main( $profile )
 		if ( isset( $profile['sejlerfaring_select'] ) )
 			add_content( 'Sejlerfaring', $profile['sejlerfaring_select'] );
 		if ( isset( $profile['gast_eller_gaest'] ) )
-			add_content( 'Gast eller gæst?', $profile['gast_eller_gaest'], 'jeg vil gerne rejse med som' );
+			add_content( 'Gast eller gæst?', extract_content( $profile['gast_eller_gaest'] ), 'jeg vil gerne rejse med som' );
 		if ( isset( $profile['sejlomraade'] ) )
 			add_content( 'Sejlområder', extract_content( $profile['sejlomraade'] ), 'jeg vil gerne sejle i' );
 		if ( isset( $profile['sejlomraade'] ) )
