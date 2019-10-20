@@ -1,7 +1,7 @@
-<?php /* Template: SailMore Gast */ ?>
+<?php /* Template: SailMore Skipper */ ?>
 <div class="mec-wrap sm-members-wrap">
 	<div class="um <?php echo $this->get_class( $mode ); ?> um-<?php echo $form_id; ?>">
-		<div class="um-form">
+		<div class="um-form sm-centered-form">
 			<?php do_action( 'um_members_directory_search', $args ); ?>
 			<?php do_action( 'um_members_directory_head', $args ); ?>
 		</div>
@@ -21,44 +21,14 @@
 						</div>
 						<div class="mec-event-content sm-event-content">
 							<div class="mec-event-date mec-bg-color sm-event-date-wrapper">
-								<div class="sm-event-date">
-									<div class="sm-event-date-top">
-										<?php
-										$key = 'sejlperiode_start';
-										$value = um_filtered_value( $key );
-										if ( $value )
-											$piecesStart = explode( " ", $value );
-										if ( $piecesStart ) {
-											echo '<span class="sm-event-date-num">';
-											_e( trim( $piecesStart[0] ), 'ultimate-member' );
-											echo '</span>';
-											echo '<span class="sm-event-date-month">';
-											_e( trim( $piecesStart[1] ), 'ultimate-member' );
-											echo '</span> -</br>';
-										}
-										$key = 'sejlperiode_slut';
-										$value = um_filtered_value( $key );
-										if ( $value )
-											$piecesSlut = explode( " ", $value );
-										if ( $piecesSlut ) {
-											echo '<span class="sm-event-date-num">';
-											_e( trim( $piecesSlut[0] ), 'ultimate-member' );
-											echo '</span>';
-											echo '<span class="sm-event-date-month">';
-											_e( trim( $piecesSlut[1] ), 'ultimate-member' );
-										}
-										?>
-									</div>
-								</div>
 								<div class="sm-event-loc">
-									<i class="mec-sl-location-pin sm-location-pin-um"></i>
 									<div class="sm-loc-text">
 										<div class="sm-loc-header-label-um">
-											Sejlområde
+											Sejladstype
 										</div>
 										<div class="sm-loc-header-um">
 											<?php
-											$key = 'sejlomraade';
+											$key = 'sejladstype';
 											$value = um_filtered_value( $key );
 											if ( $value )
 												_e( $value, 'ultimate-member' );
@@ -79,11 +49,26 @@
 										</div>
 									</div>
 								</div>
+								<div class="sm-event-loc">
+									<div class="sm-loc-text">
+										<div class="sm-loc-header-label-um">
+											Skills
+										</div>
+										<div class="sm-loc-header-um">
+											<?php
+											$key = 'skills';
+											$value = um_filtered_value( $key );
+											if ( $value )
+												_e( $value, 'ultimate-member' );
+											?>
+										</div>
+									</div>
+								</div>
 							</div>
 							<h4 class="mec-event-title sm-event-title"><a class="mec-color-hover" data-event-id="2570"
 																		  href="<?php echo um_user_profile_url(); ?>">
 									<?php
-									$key = 'description';
+									$key = 'user_login';
 									$value = um_filtered_value( $key );
 									if ( $value )
 										_e( trim( str_replace( array( "<p>", "</p>" ), "", $value ) ), 'ultimate-member' );
@@ -91,7 +76,7 @@
 								</a></h4>
 							<span class="sm-event-post-content-um">
 							<?php
-							$key = 'beskriv_dig_selv_som_gast';
+							$key = 'personlig';
 							$value = um_filtered_value( $key );
 							if ( $value )
 								_e( $value, 'ultimate-member' );
@@ -108,7 +93,7 @@
 								<ul class="mec-event-sharing"></ul>
 							</ul>
 							<a class="mec-booking-button sm-booking-button" data-event-id="2570"
-							   href="<?php echo '/gast/' . strtolower(um_filtered_value( 'user_login' )) ?>" target="_self">LÆS
+							   href="<?php echo '/skipper/' . strtolower(um_filtered_value( 'user_login' )) ?>" target="_self">LÆS
 								MERE</a>
 						</div>
 					</article>

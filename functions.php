@@ -26,7 +26,9 @@ function sm_rewrite_rules_gast( $rules )
 	$newrules['um-download/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$'] = 'index.php?um_action=download&um_form=$matches[1]&um_field=$matches[2]&um_user=$matches[3]&um_verify=$matches[4]';
 
 
-	$user_page_id = 198;
+	// Server page id: 2710
+	// $user_page_id = 198;
+	$user_page_id = 2710;
 	$user = get_post( $user_page_id );
 
 	if ( isset( $user->post_name ) ) {
@@ -70,7 +72,9 @@ function sm_rewrite_rules_skipper( $rules )
 	$newrules['um-download/([^/]+)/([^/]+)/([^/]+)/([^/]+)/?$'] = 'index.php?um_action=download&um_form=$matches[1]&um_field=$matches[2]&um_user=$matches[3]&um_verify=$matches[4]';
 
 
-	$user_page_id = 2634;
+	// Server page id: 2777
+	// $user_page_id = 2634;
+	$user_page_id = 2777;
 	$user = get_post( $user_page_id );
 
 	if ( isset( $user->post_name ) ) {

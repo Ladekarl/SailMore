@@ -69,6 +69,15 @@ div.sm-members-wrap {
     display: none;
   }
 
+  .sm-centered-form {
+    .um-search {
+      div.um-search-filter {
+        float: none !important;
+        display: inline-block !important;
+      }
+    }
+  }
+
   .um-search {
     padding: 0 !important;
     min-height: 55px;
