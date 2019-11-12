@@ -110,7 +110,7 @@ function sm_profile_header_skipper( $profile )
 				?>
 			</div>
 			<div class="sm-contact-container">
-				<a class="sm-profile-contact-button">
+				<a class="sm-profile-contact-button" href="<?php echo fep_query_url('newmessage', array('to' => um_user( 'ID' ) ) ); ?>">
 					Kontakt mig
 				</a>
 				<a class="sm-profile-contact-button">
