@@ -111,6 +111,21 @@ function sm_rewrite_rules_skipper( $rules )
 	return $newrules + $rules;
 }
 
+function sm_query_vars( $aVars )
+{
+	$aVars[] = "skipper";
+	return $aVars;
+}
+
+function sm_rewrite_rules_query( $aRules )
+{
+	$aNewRules = array( 'sejltogter/?$' => 'index.php?pagename=sejltogter&skipper=$matches[1]' );
+	$aRules = $aNewRules + $aRules;
+	return $aRules;
+}
+
+add_filter( 'query_vars', 'sm_query_vars' );
+add_filter( 'rewrite_rules_array', 'sm_rewrite_rules_query' );
 add_action( 'wp_enqueue_scripts', 'my_theme_scripts_function' );
 add_filter( 'rewrite_rules_array', 'sm_rewrite_rules_gast', 10, 10 );
 add_filter( 'rewrite_rules_array', 'sm_rewrite_rules_skipper', 10, 10 );
