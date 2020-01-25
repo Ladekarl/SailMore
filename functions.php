@@ -124,11 +124,62 @@ function sm_rewrite_rules_query( $aRules )
 	return $aRules;
 }
 
+//Handle data retrieved from a social network profile
+function oa_social_login_store_extended_data( $user_data, $identity )
+{
+	// $user_data is an object that represents the newly added user
+	// The format is similar to the data returned by $user_data = get_userdata ($user_id);
+
+	// $identity is an object that contains the full social network profile
+
+	//Example to store the gender
+	update_user_meta( $user_data->ID, 'gender', $identity->gender );
+}
+
+//Use the email address as user_login
+function oa_social_login_set_email_as_user_login( $user_fields )
+{
+	if ( !empty ( $user_fields['user_email'] ) ) {
+		if ( !username_exists( $user_fields['user_email'] ) ) {
+			$user_fields['user_login'] = $user_fields['user_email'];
+		}
+	}
+	return $user_fields;
+}
+
+//Set custom roles for new users
+function oa_social_login_set_new_user_role_url_based( $user_role )
+{
+	//Read the current url
+	$current_url = oa_social_login_get_current_url();
+
+	//For example: https://www.your-website.com/employer-signup/
+	if ( strpos( $current_url, '/registrer-som-gast' ) !== false ) {
+		return 'gast';
+	}
+
+	//For example: http://www.your-website.com/candidate-signup/
+	if ( strpos( $current_url, '/registrer-skipper' ) !== false ) {
+		return 'skipper';
+	}
+
+	//Default
+	return $user_role;
+}
+
+
 add_filter( 'query_vars', 'sm_query_vars' );
 add_filter( 'rewrite_rules_array', 'sm_rewrite_rules_query' );
 add_action( 'wp_enqueue_scripts', 'my_theme_scripts_function' );
 add_filter( 'rewrite_rules_array', 'sm_rewrite_rules_gast', 10, 10 );
 add_filter( 'rewrite_rules_array', 'sm_rewrite_rules_skipper', 10, 10 );
+
+//This action is called whenever Social Login adds a new user
+add_action( 'oa_social_login_action_after_user_insert', 'oa_social_login_store_extended_data', 10, 2 );
+//This filter is applied to new users
+add_filter( 'oa_social_login_filter_new_user_fields', 'oa_social_login_set_email_as_user_login' );
+//This filter is applied to the roles of new users
+add_filter( 'oa_social_login_filter_new_user_role', 'oa_social_login_set_new_user_role_url_based' );
 
 
 
