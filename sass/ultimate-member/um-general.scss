@@ -172,6 +172,8 @@ div.um-field-multiselect .um-field-area.um-field-area-has-icon {
       margin-right: 20px;
 
       a.um-profile-photo-img {
+        width: initial !important;
+        height: initial !important;
         position: initial !important;
         padding: 0 !important;
         -moz-border-radius: 0 !important;
@@ -202,3 +204,6 @@ div.um-field-multiselect .um-field-area.um-field-area-has-icon {
   color: #FFFFFF !important;
 }
 
+.um .picker { 
+  color: initial !important;
+}
