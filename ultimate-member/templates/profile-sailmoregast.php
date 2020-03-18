@@ -235,7 +235,7 @@ function sm_fetch_user()
 
 		if ( $user_id ) {
 			um_set_requested_user( $user_id );
-			sm_access_profile( $user_id );
+			//sm_access_profile( $user_id );
 		} else {
 			exit( wp_redirect( um_get_core_page( 'user' ) ) );
 		}
