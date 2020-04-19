@@ -16,7 +16,7 @@
 				<div class="col-md-3 col-sm-3">
 					<article data-style="" class="mec-event-article sm-event-article mec-clear ">
 						<div class="mec-event-image sm-event-image">
-							<a href="<?php echo um_user_profile_url(); ?>"
+							<a href="<?php echo '/gast/' . strtolower(um_filtered_value( 'user_login' )) ?>"
 							   title="<?php echo esc_attr( um_user( 'display_name' ) ); ?>"><?php echo um_user( 'cover_photo' ); ?></a>
 						</div>
 						<div class="mec-event-content sm-event-content">
