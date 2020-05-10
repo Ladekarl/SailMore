@@ -102,5 +102,6 @@
 			echo '</div>';
 		}
 		?>
+		<?php do_action( 'um_members_directory_footer', $args ); ?>
 	</div>
 </div>

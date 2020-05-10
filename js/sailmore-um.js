@@ -5,6 +5,8 @@ jQuery(document).ready(function () {
     jQuery('.sm-members-wrap #sejlerfaring_select').before('<i class="mec-sl-tag"></i>');
     jQuery('.sm-members-wrap #sejladstype').before('<i class="mec-sl-globe"></i>');
     jQuery('.sm-members-wrap #aktiviteter').before('<i class="mec-sl-folder"></i>');
+    jQuery('.sm-members-wrap #skills').before('<i class="mec-sl-equalizer"></i>');
+    jQuery('.sm-members-wrap #user_login').before('<i class="mec-sl-user"></i>');
 
     jQuery(document.body).on('change', '.sm-members-wrap .um-s1', function (e) {
 
