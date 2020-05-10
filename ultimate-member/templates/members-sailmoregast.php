@@ -69,7 +69,7 @@
 										</div>
 										<div class="sm-loc-header-um">
 											<?php
-											$key = 'sejlerfaring_select';
+											$key = 'sejlerfaring_select_gast';
 											$value = um_filtered_value( $key );
 											if ( $value )
 												_e( $value, 'ultimate-member' );
@@ -108,7 +108,7 @@
 								<ul class="mec-event-sharing"></ul>
 							</ul>
 							<a class="mec-booking-button sm-booking-button" data-event-id="2570"
-							   href="<?php echo '/gast/' . strtolower(um_filtered_value( 'user_login' )) ?>" target="_self">LÆS
+							   href="<?php echo um_user_profile_url(); ?>" target="_self">LÆS
 								MERE</a>
 						</div>
 					</article>
