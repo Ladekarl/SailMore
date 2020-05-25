@@ -1,0 +1,13 @@
+.mec-single-event {
+  .mec-single-event-category {
+    a.mec-color-hover {
+      pointer-events: none;
+      cursor: default;
+      text-decoration: none;
+
+      i.mec-fa-angle-right {
+        display: none;
+      }
+    }
+  }
+}
