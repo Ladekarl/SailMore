@@ -306,3 +306,9 @@ function um_registration_set_profile_photo($user_id, $args)
 		@unlink($image_path_cover);
 	}
 }
+
+add_filter('login_url', 'my_login_page', 10, 3);
+function my_login_page($login_url, $redirect, $force_reauth)
+{
+	return home_url('/login/?redirect_to=' . $redirect);
+}
